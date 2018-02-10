@@ -10,7 +10,7 @@ function calculateRegressionLine() {
     // for each x and y values
     var homelessData = [];
     for (var i = 0; i < data.year.length; i++) {
-        homelessData.push([data.year[i], data.total_homeless[i]]);
+        homelessData.push([data.year[i], data.unemployment[i]]);
     }
     // Create a regression object in slope intercept form
     var regression = ss.linearRegression(homelessData);
@@ -49,10 +49,10 @@ var trace1 = {
 // Create the data trace for the high jump
 var trace2 = {
     x: data.year,
-    y: data.total_homeless,
+    y: data.unemployment,
     mode: "markers",
     type: "scatter",
-    name: "homeless population",
+    name: "% Unemployment",
     marker: {
         color: "green",
         symbol: "diamond-x"
@@ -65,9 +65,9 @@ var data = [trace1, trace2];
 
 // Define the plot layout
 var layout = {
-    title: "US Homeless population 2007-2016",
+    title: "US Unemployment 2008-2018",
     xaxis: { title: "Year" },
-    yaxis: { title: "Homeless People" }
+    yaxis: { title: "% Unemployment" }
 };
 
 // Plot the chart to a div tag with id "plot"
